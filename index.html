@@ -7,65 +7,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Packages Tracker</title>
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+    <script src="https://api.mapbox.com/mapbox.js/plugins/arc.js/v0.1.0/arc.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Surveillance System</title>
 
     <!-- Include Style sheet? -->
-    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <!-- <link rel="stylesheet" type="text/css" href="style.css">  -->
 
     <!-- Bootstrap core CSS -->
     <link href="js-lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        background-color: #35312f;
+        margin: 0;
+        padding: 0;
+      }
 
+      h1 {
+        color: #fff;
+        font-family: "OCR A Std", monospace;
+        text-align: center;
+        font-size: 50px;
+      }
+      .map {
+        margin-left: 400px;
+        margin-right: 300px;
+        height: 80%;
+        width: 80%;  
+        
+      }
+      .unl_map_image {
+        content:url(img/UNL_MAP_1.PNG);
+        height: 80%;
+        width: 80%;  
+        position: relative;
+        text-align: center;
+        z-index: 1;
+      }
+
+      .security_camera_btn {
+        background-image: url(img/security_camera.png);
+        background-size: 100%;
+        color: white;
+        opacity: 1;
+        padding: 16px;
+        font-size: 16px;
+      }
+
+      .security_camera {
+        position: absolute;
+        display: inline-block;
+      }
+
+      #cam_1 {
+        top: 70%;
+        left: 60%;
+        height: 8%;
+        width: 4%;  
+        z-index: 2;
+      }
+
+      #cam_2 {
+        top: 35%;
+        left: 24%;
+        height: 8%;
+        width: 4%;  
+        z-index: 3;
+      }
+
+      #cam_3 {
+        top: 50%;
+        left: 23%;
+        height: 8%;
+        width: 4%;  
+        z-index: 2;
+      }
+
+      .security_camera-content {
+        display: none;
+        position: absolute;
+        /* content:url(img/giphy.gif); */
+        /* content:url(vid/violence_1.mp4); */
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+
+      .security_camera a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      .security_camera-content a:hover {
+        background-color: #ddd;
+      }
+
+      .security_camera:hover .security_camera-content {display: block;}
+
+      .security_camera:hover .security_camera_btn {
+        background-color: #e21515;
+      }
+    </style>
   </head>
 
   <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light static-top">
-      <div class="container">
-        <a class="navbar-brand" href="./index.html">Packages Tracker</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
+    </br><h1>Surveillance System</h1></br>
+    <center><div id="unl_map" class="unl_map_image"> </div></center>
+    <!-- <a href="https://google.com">  -->
+    <!-- <div id="security_camera" class="security_camera"> 
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
         </div>
-      </div>
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
-          <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-          <ul class="list-unstyled">
-            <li>Bootstrap 4.1.3</li>
-            <li>jQuery 3.3.1</li>
-          </ul>
+    </div>   -->
+    <div class="security_camera" id="cam_1">
+        <button class="security_camera_btn"></button>
+        <div class="security_camera-content">
+          <video controls autoplay muted>
+            <source src="vid/violence_1.mp4" type="video/mp4">
+          </video>
         </div>
-      </div>
     </div>
+    <div class="security_camera" id="cam_2">
+        <button class="security_camera_btn"></button>
+        <div class="security_camera-content">
+          <video controls autoplay muted>
+            <source src="vid/violence_1.mp4" type="video/mp4">
+          </video>
+        </div>
+    </div>
+    <div class="security_camera" id="cam_3">
+        <button class="security_camera_btn"></button>
+        <div class="security_camera-content">
+          <video controls autoplay muted>
+            <source src="vid/violence_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+    </div>
+    <script>
+      var x = document.getElementById("video");
+      x.play();
+    </script>
+    <!-- </a>  -->
+    <!-- <div id="map_2" class="image_2" ></div> -->
+    
+    <!-- <script>
+      var map = new ol.Map({
+        layers: [
+          new ol.layer.Tile({
+          source: new ol.source.OSM()
+              })
+            ],
+            target: 'map',
+            view: new ol.View({
+              center: ol.proj.fromLonLat([-96.7005, 40.8202]),
+              zoom: 17,
 
+            })
+        });
+      var style = new ol.style.Style({
+        stroke: new ol.style.Stroke({
+          color: '#228B22',
+          width: 2
+        })
+      });
+    </script> -->
     <!-- Bootstrap core JavaScript -->
     <script src="js-lib/jquery/jquery.min.js"></script>
     <script src="js-lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    
   </body>
 
 </html>
