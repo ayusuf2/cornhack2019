@@ -1,7 +1,4 @@
-/*
-    Framework frame-by-frame by erasche
-    ref: https://github.com/erasche/videojs-framebyframe/
-*/
+// videojs-framebyframe-plugin
 
 var VjsButton = videojs.getComponent('Button');
 var FBFButton = videojs.extend(VjsButton, {

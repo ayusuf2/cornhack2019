@@ -19,9 +19,11 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- CSS ================================================== -->
+    <link rel="stylesheet" href="stylesheets/github-light.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/main.css">
+    <!-- <link href="//vjs.zencdn.net/5.7.1/video-js.css" rel="stylesheet"> -->
     <!-- script ================================================== -->
     <script src="js/modernizr.js"></script>
     <script src="js/pace.min.js"></script>
@@ -29,155 +31,167 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js-lib/jquery/jquery.min.js"></script>
     <script src="js-lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="//vjs.zencdn.net/5.7.1/video.js"></script>
+    <script src="javascripts/scale.fix.js"></script>
+    <script src="//cdn.rawgit.com/erasche/videojs-framebyframe/c9dd2b6bf0e7b527aa505d0e9e19ffe756eb1ee5/video-framebyframe.js"></script> -->
     <!-- favicons  ================================================== -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-        body {
-            background-color: #35312f;
-            margin: 0;
-            padding: 0;
-        }
-        /*
-        Eye with some modifications
-        ref: https://www.youtube.com/watch?v=9Yk_bR0cFOc
-        */
-        .eye {
-          width: 200px;
-          height: 200px;
-          background: white;
-          position: absolute;
-          top: 110%;
-          left: 50%;
-          transform: translate(-50%, -50%) rotate(45deg);
-          border-radius: 75% 0;
-          overflow: hidden;
-          cursor: pointer;
-        }
-        .eye_ball{
-          width: 50px;
-          height: 50px;
-          background: rgb(17, 16, 16);
-          border-radius: 50%;
-          border: 40px solid #576574;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-        }
-        .left {
-          -moz-transform: scaleX(-1);
-          -o-transform: scaleX(-1);
-          -webkit-transform: scaleX(-1);
-          transform: scaleX(-1);
-          filter: FlipH;
-          -ms-filter: "FlipH";
-        }
-        .right {
-          -moz-transform: scaleX(1);
-          -o-transform: scaleX(1);
-          -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-          filter: FlipH;
-          -ms-filter: "FlipH";
-        }
-        #moving_eye_ball {
-          transition: transform .1s;
-        }
-       
-        h1 {
-          color: #fff;
-          font-family: "OCR A Std", monospace;
-          text-align: center;
-          position: sticky;
-          font-size: 50px;
-        }
+      body {
+          background-color: #000;
+          margin: 0;
+          padding: 0;
+      }
+      /*
+      Eye with some modifications
+      ref: https://www.youtube.com/watch?v=9Yk_bR0cFOc
+      */
+      .eye {
+        width: 200px;
+        height: 200px;
+        background: white;
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        border-radius: 75% 0;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .eye_ball{
+        width: 50px;
+        height: 50px;
+        background: rgb(17, 16, 16);
+        border-radius: 50%;
+        border: 40px solid #576574;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
 
-        #unl_map {
-          position: relative;
-          top: 0;
-          left: 0;
-        }
-        .unl_map_image {
-          /* visibility: hidden; */
-          content:url(img/UNL_MAP_1.PNG);
-          height: 80%;
-          width: 80%;  
-          position: relative;
-          top: 0;
-          left: 0;
-          z-index: 1;
-        }
-        .security_camera {
-          position: absolute;
-          /* display: block; */
-          background-size: 100%;
-        }
-        
-        #cam_1 {
-          top: 190%;
-          left: 60%;
-          height: 8%;
-          width: 4%;
-          z-index: 4;  
-        }
-        #violence_video {
-          display: inline-block;
-        }
-        #cam_2 {
-          top: 155%;
-          left: 24%;
-          height: 8%;
-          width: 4%;  
-          z-index: 4;
-        }
-        #cam_3 {
-          top: 170%;
-          left: 23%;
-          height: 8%;
-          width: 4%;  
-          z-index: 4;
-        }
+      .left {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+      }
+      .right {
+        -moz-transform: scaleX(1);
+        -o-transform: scaleX(1);
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+      }
+      #moving_eye_ball {
+        transition: transform .1s;
+      }
+      
+      h1 {
+        color: #fff;
+        font-family: "OCR A Std", monospace;
+        text-align: center;
+        position: sticky;
+        font-size: 50px;
+      }
 
-        #my-screenshot {
-          display: inline;
-          /* height: 100%;
-          width: 100%; */
-          z-index: 4;
-        }
+      #unl_map {
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+      .unl_map_image {
+        /* visibility: hidden; */
+        content:url(img/UNL_MAP_1.PNG);
+        height: 80%;
+        width: 80%;  
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+      .security_camera {
+        position: absolute;
+        /* display: block; */
+        background-size: 100%;
+      }
+      
+      #cam_1 {
+        top: 130%;
+        left: 65%;
+        height: 8%;
+        width: 4%;
+        z-index: 4;  
+      }
+      
+      #cam_2 {
+        top: 130%;
+        left: 24%;
+        height: 8%;
+        width: 4%;  
+        z-index: 4;
+      }
+      #cam_3 {
+        top: 175%;
+        left: 24%;
+        height: 8%;
+        width: 4%;  
+        z-index: 4;
+      }
+      #cam_4 {
+        top: 175%;
+        left: 65%;
+        height: 8%;
+        width: 4%;  
+        z-index: 4;
+      }
 
-        .security_camera_btn {
-          /* display: inline-block; */
-          background-image: url(img/security_camera.png);
-          background-size: 100%;
-          color: white;
-          /* padding: 16px;
-          font-size: 16px; */
-        }
-        .security_camera-content {
-          display: none;
-          position: absolute;
-          background-color: #f1f1f1;
-          min-width: 160px;
-          background-size: 200%;
-          /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
-          /* z-index: 1; */
-        }
-    
-        .security_camera a {
-          color: black;
-          padding: 15px 15px;
-          text-decoration: none;
-          display: inline-block;
-        }
-        .security_camera-content a:hover {
-          background-color: #ddd;
-        }
-        .security_camera:hover .security_camera-content {
-          display: inline-block;
-        }
-        .security_camera:hover .security_camera_btn {
-          background-color: #e21515;
-        }
+      #my-screenshot {
+        display: inline;
+        /* height: 100%;
+        width: 100%; */
+        z-index: 4;
+      }
+
+      .security_camera_btn {
+        /* display: inline-block; */
+        background-image: url(img/security_camera.png);
+        background-size: 100%;
+        color: white;
+        /* padding: 16px;
+        font-size: 16px; */
+      }
+      .security_camera-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        background-size: 200%;
+        /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+        /* z-index: 1; */
+      }
+      /* #violence_video {
+        display: inline-block;
+      } */
+  
+      .security_camera a {
+        color: rgb(230, 15, 15);
+        padding: 15px 15px;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .security_camera-content a:hover {
+        background-color: #ddd;
+      }
+      .security_camera:hover .security_camera-content {
+        display: inline-block;
+      }
+      .security_camera:hover .security_camera_btn {
+        background-color: #e21515;
+      }
     </style>
     </head>
     <body id="top">
@@ -234,12 +248,12 @@
         </div>
         </br></br></br></br></br></br>
         <center>
-            <div id="unl_map" class="unl_map_image"></div>
+            <div id="unl_map" class="unl_map_image" class="wrapper"></div>
         </center>
         <div id="cam_1" class="security_camera">
             <button class="security_camera_btn"></button>
             <div class="security_camera-content">
-                <video id="violence_video" controls autoplay muted>
+                <video id="violence_video" loop controls autoplay muted>
                 <source src="vid/violence_1.mp4" type="video/mp4">
                 </video>
                 <img id="my-screenshot" />
@@ -248,44 +262,48 @@
         <div id="cam_2" class="security_camera">
             <button class="security_camera_btn"></button>
             <div class="security_camera-content">
-                <video id="violence_video" controls autoplay muted>
+                <video id="violence_video" loop class="video-js vjs-default-skin" controls autoplay muted>
                 <source src="vid/violence_1.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
         <div id="cam_3" class="security_camera">
             <button class="security_camera_btn"></button>
-            <div class="security_camera-content">
-                <video id="violence_video" controls autoplay muted>
+            <div class="security_camera-content" >
+                <video id="violence_video" loop controls autoplay muted>
                 <source src="vid/violence_1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
                 </video>
                 <img id="my-screenshot" />
             </div>
         </div>
-        <script type="text/JavaScript">
-          var frame = captureVideoFrame('violence_video', 'png');
-          // Show the image
-          var img = document.getElementById('my-screenshot');
-          img.setAttribute('src', frame.dataUri);   
-          // Upload the image...
-          var formData = new FormData();
-          formData.append('file', frame.blob, 'my-screenshot.' + frame.format);
-
-          // // ...with plain JS
-          var request = new XMLHttpRequest();
-          request.open('POST', '/api/upload', true);
-          request.setRequestHeader('Content-Type', 'application/multipart/form-data; charset=UTF-8');
-          request.send(formData);
-
-          // // ...or with jQuery
-          // $.ajax({
-          //     url: '/api/upload',
-          //     method: 'POST',
-          //     data: formData,
-          //     processData: false,
-          //     contentType: false
-          // });
+        <div id="cam_4" class="security_camera">
+            <button class="security_camera_btn"></button>
+            <div class="security_camera-content" >
+                <video id="violence_video" loop controls autoplay muted>
+                <source src="vid/violence_1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+                <img id="my-screenshot" />
+            </div>
+        </div>
+        <script type="text/javascript">
+          var video = videojs("violence_video", {
+            controls: true,
+            autoplay: true,
+            preload: 'auto',
+            plugins: {
+              framebyframe: {
+                fps: 23.98,
+                steps: [
+                  { text: '-5', step: -5 },
+                  { text: '-1', step: -1 },
+                  { text: '+1', step: 1 },
+                  { text: '+5', step: 5 },
+                ]
+              }
+            }
+          });
         </script>
 
         <script type="text/JavaScript">
