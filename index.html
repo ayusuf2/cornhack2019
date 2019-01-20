@@ -17,26 +17,28 @@
 
     <!-- Bootstrap core CSS -->
     <link href="js-lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <style>
-      body {
-        background-color: #35312f;
-        margin: 0;
-        padding: 0;
+      
+      body
+      {
+          margin: 0px;
+          padding: 0px;
+         background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 11pt;
+          font-weight: 300;
+          color: #6c6c6c
       }
+    
 
       h1 {
         color: #fff;
-        font-family: "OCR A Std", monospace;
+        font-family: 'Fjalla One', sans-serif;
         text-align: center;
-        font-size: 50px;
+        font-size: 70px;
       }
-      .map {
-        margin-left: 400px;
-        margin-right: 300px;
-        height: 80%;
-        width: 80%;  
-        
-      }
+    
       .unl_map_image {
         content:url(img/UNL_MAP_1.PNG);
         height: 80%;
@@ -87,8 +89,6 @@
       .security_camera-content {
         display: none;
         position: absolute;
-        /* content:url(img/giphy.gif); */
-        /* content:url(vid/violence_1.mp4); */
         background-color: #f1f1f1;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -114,17 +114,8 @@
   </head>
 
   <body>
-    </br><h1>Surveillance System</h1></br>
+    </br><h1>SAFEGUARD</h1></br>
     <center><div id="unl_map" class="unl_map_image"> </div></center>
-    <!-- <a href="https://google.com">  -->
-    <!-- <div id="security_camera" class="security_camera"> 
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-    </div>   -->
     <div class="security_camera" id="cam_1">
         <button class="security_camera_btn"></button>
         <div class="security_camera-content">
@@ -150,34 +141,7 @@
           </video>
         </div>
     </div>
-    <script>
-      var x = document.getElementById("video");
-      x.play();
-    </script>
-    <!-- </a>  -->
-    <!-- <div id="map_2" class="image_2" ></div> -->
-    
-    <!-- <script>
-      var map = new ol.Map({
-        layers: [
-          new ol.layer.Tile({
-          source: new ol.source.OSM()
-              })
-            ],
-            target: 'map',
-            view: new ol.View({
-              center: ol.proj.fromLonLat([-96.7005, 40.8202]),
-              zoom: 17,
 
-            })
-        });
-      var style = new ol.style.Style({
-        stroke: new ol.style.Stroke({
-          color: '#228B22',
-          width: 2
-        })
-      });
-    </script> -->
     <!-- Bootstrap core JavaScript -->
     <script src="js-lib/jquery/jquery.min.js"></script>
     <script src="js-lib/bootstrap/js/bootstrap.bundle.min.js"></script>
