@@ -46,9 +46,9 @@
       .eye_ball{
         width: 50px;
         height: 50px;
-        background: red;
+        background: rgb(17, 16, 16);
         border-radius: 50%;
-        /* border: 40px solid #576574; */
+        border: 40px solid #576574;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -235,6 +235,7 @@
       document.addEventListener("mousemove", getMouse);
       moving_eye_ball.style.position = "absolute";
       var moving_eye_ball_pos = {x:0, y:0};
+      var origin = {x: 0, y: 0};
       setInterval(followMouse, 50);
       var mouse = {x:50, y:50};
       var dir = "right";
@@ -249,10 +250,10 @@
       }
 
       function followMouse() {
-        var distX = mouse.x - moving_eye_ball_pos.x;
-        var distY = mouse.y - moving_eye_ball_pos.y;
-        moving_eye_ball_pos.x += distX / 5;
-        moving_eye_ball_pos.y += distY / 2;
+        var distX = (mouse.x % 150) - moving_eye_ball_pos.x;
+        var distY = (mouse.y % 100) - moving_eye_ball_pos.y;
+        moving_eye_ball_pos.x += distX / 10;
+        moving_eye_ball_pos.y += distY / 4;
         moving_eye_ball.style.left = moving_eye_ball_pos.x + "px";
         moving_eye_ball.style.top = moving_eye_ball_pos.y + "px";
         if (dir == "right") {
